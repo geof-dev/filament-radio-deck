@@ -2,12 +2,13 @@
 
 - resources/views/forms/components/radio-deck.blade.php
 
-```
+```php
 $color = $getColor($value);
 ```
 
 - src/Forms/Components/RadioDeck.php
-```
+
+```php
 protected array|Arrayable|Closure|string $colors = [];
 
 public function getColors(): mixed
