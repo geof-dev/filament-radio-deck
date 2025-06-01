@@ -11,6 +11,13 @@ $color = $getColor($value);
 ```php
 protected array|Arrayable|Closure|string $colors = [];
 
+public function colors(array|Arrayable|string|Closure $colors): static
+    {
+        $this->colors = $colors;
+
+        return $this;
+    }
+    
 public function getColors(): mixed
     {
         $colors = $this->evaluate($this->colors);
