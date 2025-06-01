@@ -34,7 +34,7 @@
                     $direction = $getDirection();
                     $gap = $getGap();
                     $padding = $getPadding();
-                    $color = $getColor();
+                    $color = $getColor($value);
                     $icon = $getIcon($value);
                     $iconSize = $getIconSize();
                     $iconSizeSm = $getIconSizes('sm');

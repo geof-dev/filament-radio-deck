@@ -36,6 +36,8 @@ class RadioDeck extends IntermediaryRadio
 
     protected array|Arrayable|Closure|string $descriptions = [];
 
+    protected array|Arrayable|Closure|string $colors = [];
+
     protected bool|Closure $isMultiple = false;
 
     protected string $view = 'radio-deck::forms.components.radio-deck';
@@ -69,6 +71,13 @@ class RadioDeck extends IntermediaryRadio
     public function descriptions(array|Arrayable|string|Closure $descriptions): static
     {
         $this->descriptions = $descriptions;
+
+        return $this;
+    }
+
+    public function colors(array|Arrayable|string|Closure $colors): static
+    {
+        $this->colors = $colors;
 
         return $this;
     }
@@ -127,6 +136,22 @@ class RadioDeck extends IntermediaryRadio
     public function getIcon($value): ?string
     {
         return $this->getIcons()[$value] ?? null;
+    }
+
+    public function getColors(): mixed
+    {
+        $colors = $this->evaluate($this->colors);
+
+        if ($colors instanceof Arrayable) {
+            $colors = $colors->toArray();
+        }
+
+        return $colors;
+    }
+
+    public function getColor($value): ?string
+    {
+        return $this->getColors()[$value] ?? null;
     }
 
     /**
